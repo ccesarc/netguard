@@ -1,0 +1,10 @@
+# gerados
+backend/internal/web/dist/app/
+bin/
+frontend/node_modules/
+frontend/dist/
+
+# segredos e configuração local
+.env
+*.env
+!deploy/netguard.env.exemplo

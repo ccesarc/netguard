@@ -1,0 +1,20 @@
+# Serviço do usuário (sem root). Instalação em README.md, seção "Instalar como serviço".
+[Unit]
+Description=NetGuard - monitor da rede de casa
+Documentation=file://%h/projects/netguard/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/netguardd servir
+EnvironmentFile=%h/.config/netguard/netguard.env
+Environment=GOMEMLIMIT=40MiB
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+MemoryMax=150M
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target
